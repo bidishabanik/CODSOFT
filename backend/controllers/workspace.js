@@ -1,0 +1,37 @@
+import Workspace from "../models/workspace.js";
+
+const createWorkspace= async (req, res) => {
+  try {
+    const {name, description, color} = req.body;
+    const workspace = await Workspace.create({
+      name,
+      description,
+        color,
+        owner: req.user._id,
+        members: [{
+            user: req.user._id,
+            role: "owner",
+            joinedAt: new Date(),
+        }],
+    });
+    res.status(201).json(workspace);
+  } catch (error) {
+    console.error("Error creating workspace:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+const getWorkspaces = async (req, res) => {
+  try {
+    const workspaces = await Workspace.find({
+      'members.user': req.user._id
+    }).populate('owner', 'name email').lean();
+    
+    res.status(200).json(workspaces);
+  } catch (error) {
+    console.error("Error fetching workspaces:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export {createWorkspace, getWorkspaces};
