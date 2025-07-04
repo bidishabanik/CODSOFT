@@ -50,3 +50,12 @@ export const inviteMemberSchema = z.object({
 export const tokenSchema = z.object({
   token: z.string().min(1, "Token is required"),
 });
+
+export const taskSchema = z.object({
+  title: z.string().min(1, "Task title is required"),
+  description: z.string().optional(),
+  status: z.enum(["To Do", "In Progress", "Done"]),
+  priority: z.enum(["Low", "Medium", "High"]),
+  dueDate: z.string().optional(),
+  assignees: z.array(z.string()).optional(),
+});

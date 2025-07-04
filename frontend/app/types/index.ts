@@ -188,3 +188,4 @@ export interface WorkspaceProductivityData {
   completed: number;
   total: number;
 }
+
