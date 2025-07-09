@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <title>Calculator App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div class="header">
+          <h2>Calculator</h2>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon"></span>
+          </button>
+        </div>
+        
+        <input type="text" id="inputBox" class="display" placeholder="0" readonly />
+        
+        <div class="buttons">
+          <button class="button operator clear" data-value="AC">AC</button>
+          <button class="button operator" data-value="DEL">DEL</button>
+          <button class="button operator" data-value="%">%</button>
+          <button class="button operator" data-value="/">/</button>
+
+          <button class="button" data-value="7">7</button>
+          <button class="button" data-value="8">8</button>
+          <button class="button" data-value="9">9</button>
+          <button class="button operator" data-value="*">×</button>
+
+          <button class="button" data-value="4">4</button>
+          <button class="button" data-value="5">5</button>
+          <button class="button" data-value="6">6</button>
+          <button class="button operator" data-value="-">−</button>
+
+          <button class="button" data-value="1">1</button>
+          <button class="button" data-value="2">2</button>
+          <button class="button" data-value="3">3</button>
+          <button class="button operator" data-value="+">+</button>
+
+          <button class="button" data-value="00">00</button>
+          <button class="button" data-value="0">0</button>
+          <button class="button" data-value=".">.</button>
+          <button class="button operator equalBtn" data-value="=">=</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
